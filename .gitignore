@@ -1,5 +1,10 @@
 HELP.md
-target/
+
+target/*
+
+!target/machine_learning.jar
+!target/machine_learning.jar.original
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
