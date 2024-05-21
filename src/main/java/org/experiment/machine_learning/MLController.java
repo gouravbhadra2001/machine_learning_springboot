@@ -6,12 +6,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Value;
 
 
 
 @RestController
 public class MLController {
 
+    @Value("${sample.password}")
+    public String samplePassword;
+    @GetMapping("testenv")
+    public String testEnv(){
+        return samplePassword;
+    }
+    
     @GetMapping("linearRegression/{X}/{y}")
     public String lineRegSimp(@PathVariable String X, @PathVariable String y) {
 
