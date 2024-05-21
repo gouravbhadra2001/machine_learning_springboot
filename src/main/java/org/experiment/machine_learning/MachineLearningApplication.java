@@ -1,5 +1,5 @@
 package org.experiment.machine_learning;
-
+import org.springframework.beans.factory.annotation.Value;
 import org.apache.commons.math3.stat.regression.OLSMultipleLinearRegression;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +10,9 @@ public class MachineLearningApplication {
 
 	public static void main(String[] args) {
 
-
+		@Value("${sample.password}")
+    		public String samplePassword;
+		System.out.println(samplePassword);
 		SimpleRegression regression = new SimpleRegression();
 		double [] X = {1.0, 2.0, 5.0, 10.0, 23.0};
 		double [] y = {5.0, 8.0, 10.0, 35.0, 62.0};
