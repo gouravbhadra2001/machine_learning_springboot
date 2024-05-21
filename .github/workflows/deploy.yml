@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +21,9 @@ jobs:
         java-version: '22'
 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag machine_learning:$(date +%s)
+      run: docker build . --file Dockerfile --tag machine_learning:latest
 
     - name: Run Docker container
       env:
         SAMPLE_PASSWORD: ${{ secrets.SAMPLE_PASSWORD }}
-      run: docker run -e SAMPLE_PASSWORD=$SAMPLE_PASSWORD machine_learning:$(date +%s)
+      run: docker run -e SAMPLE_PASSWORD=$SAMPLE_PASSWORD -p 9090:8080 machine_learning:latest
